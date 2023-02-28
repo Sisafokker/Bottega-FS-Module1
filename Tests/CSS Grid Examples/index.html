@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Import CSS File -->
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <br>
+        <div class="title">Using "grid-template-columns: repeat(2, 1fr)"</div>
+        <div class="gridWrapperOne">
+            <div class="element"> Element 1</div>
+            <div class="element"> Element 2</div>
+            <div class="element"> Element 3</div>
+        </div>
+        <hr>
+    </div>
+
+    <div class="wrapper">
+        <div class="title">Using "grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));  </div>
+        <div class="title">and  grid-template-columns: 1fr 1fr 1fr;"</div>
+        <div class="gridWrapperTwo">
+            <div class="element"> Element 1</div>
+            <div class="element"> Element 2</div>
+            <div class="element"> Element 3</div>
+        </div>
+        <hr>
+    </div>
+
+    <div class="wrapper">
+        <div class="title">Same as above, but specifying;</div>
+        <div class="title">grid-column and grid-row;"</div>
+        <div class="gridWrapperThree">
+            <div class="element1"> Element 1</div>
+            <div class="element2"> Element 2</div>
+            <div class="element3"> Element 3</div>
+        </div>
+        <hr>  
+    </div>
+
+    <div class="wrapper">
+        <div class="title">Seleccion manual de ubicacion en la grilla;</div>
+        <div class="title">Unificar celdas con grid-column: 1/-1"</div>
+        <div class="gridWrapperFour">
+            <div class="element1"> Element 1</div>
+            <div class="element2"> Element 2</div>
+            <div class="element3"> Element 3</div>
+            <div class="element4"> Element 4</div>
+        </div>
+        <hr>  
+    </div>
+</body>
+</html>

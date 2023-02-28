@@ -1,0 +1,175 @@
+html { /* FOR THE ENTIRE HTML FILE, THIS ARE GOING TO THE ROOT VALUES. */
+    font-family: "Lato", sans-serif;
+    box-sizing: border-box;
+    font-size: 62.5%; /* Root value for font-size, when we call 1.5rem is 1.5 times this value*/
+}
+
+/* Wild Card Rules */
+*, *::before, *::after{ /* Apparently we are saying that before and after loading, this are in place */
+    margin: 0;  /* By default an HTML has some margin. We dont want it */
+    padding: 0; /* By default an HTML has some padding. We dont want it */
+    box-sizing: inherit; /* The box-sizing CSS property sets how the total width and height of an element is calculated. */
+}
+
+.container{
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(100px, 1fr)); /* ❓❓ */
+    grid-template-columns: 1fr 1fr 1fr; 
+    justify-items: center;  /* Horizontal alignment */
+}
+
+.container-homepage{
+    height: 100vh; /* 100% of the View Height */
+    margin-top: 5em;
+    align-items: center;    /* Vertical alignment */
+}
+
+.container-results{
+    height: 100vh; /* 100% of the View Height */
+    margin-top: 2em;
+    align-items: center;    /* Vertical alignment */
+}
+
+.homepage-logo img {
+    width: 10.5rem; /* could have done this as well: width: 200px; */
+}
+
+.homepage-logo { /* This is Grid Element */
+    /* We can then tell the div, ir its elements, where exactly within the grid we want to place it. */
+    grid-column: 2;
+    grid-row: 1;
+    /* As if I had said: Place it on B2 in Google Sheets. */
+}
+
+.search-bar { /* This is the Grid element */
+    grid-column: 1/-1; /* Podria haber usado 2... */
+    grid-row: 2;
+}
+
+.search-bar input{
+    width: 66vw; /* 66% of the with of the screen */
+    padding-left: 0.75em;   /* "em" = ratio of the normal given size */
+}
+
+.homepage-search-bar input{  /* Second Class in Homepage search bar */
+    height: 11.8rem;  /* "rem" based on the root. Go the the html height of the element, and multiply by 11.8 in this case*/
+}
+
+.results-search-bar input{ /* Second Class in Results search bar */
+    height: 5rem;
+    margin-bottom: 1em;
+    margin-top: 3em;
+}
+.search-bar input[type="text"]{ /* This is the way to access the attribute styles for the INPUT element*/
+    /* input[type="text"] Refers to the text that we will type inside the input */
+    font-size: 2em;
+    font-family: 'Font Awesome\ 5 Free',Arial, Helvetica, sans-serif; /* Part of the font awesome install */
+    font-weight: 600;
+    color: #585858;
+    box-shadow: 2px 3px 20px 1px rgba(0, 0, 0, 0.1); /* rgba allows to give transparencia, easier that with a #color*/
+    border: 0px solid transparent;
+    border-radius: 0.5rem;
+}
+
+.search-bar input[type="text"]::placeholder {
+    /* input[type="text"]::placeholder Refers to the text that shows BEFORE the user types something */
+    font-family: 'Font Awesome\ 5 Free',Arial, Helvetica, sans-serif; /* Part of the font awesome install */
+    font-weight: 600;
+    color: #a4a4a4;
+}
+
+.search-bar input[type="text"]:focus {
+    outline: none;        /* removes the outline */
+    box-shadow: 2px 3px 20px 1px  rgba(0, 0, 0, 0.3);  /* Changes the transparency */
+}
+
+.search-bar p {
+    color: #b3b3b3;
+    font-size: 1.4rem;
+    line-height: 1.75rem;
+    margin-top:2.3rem;
+    text-align: right;
+}
+
+.recent-posts-wrapper { /* This is the Grid element */
+    grid-column: 1/-1; /* Podria haber usado 2... */
+    grid-row: 3;
+}
+
+.recent-posts-heading{
+    color: #2660f3;
+    margin-bottom: 3rem;
+    font-size: 1.4rem;
+}
+
+.recent-posts {
+    display: grid;
+    width: 66vw;    /* Same with as the Search Bar */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Used when you do not know how many Divs you will need to split in columns in the HTML */
+    /* minmax(100px, 1fr) This allows to automatically stack when necesary and make it mobile friendly */
+    grid-gap: 2.5rem;
+}
+
+.recent-post-title {
+    color: black;
+    font-size: 1.4rem;
+}
+
+.recent-post-category{
+    color: #999999;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+
+/* RESULTS PAGE STYLES */
+.results-posts-wrapper{
+    grid-row: 3;            /* Takes it to the 3rd row of the grid */
+    grid-column: 1/-1;      /* Unifies the 3 columns (even though you wont see this shown with the inspection tool */
+    width: 66vw;            /* Makes the now, 3rd row, the same with as the Search Bar (66% of the View) */
+}
+
+.post{
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+.category-name{
+    color: #2660f3;
+    margin-bottom: 1.1rem;
+    font-size: 1.4rem;
+}
+
+.result-post-title a{
+    color:#535353;
+    text-decoration: none; /* remove underlined */
+    font-size: 1.6rem;
+}
+
+.result-post-links-wrapper{
+    display: grid;
+    /* grid-template-rows: repeat(auto-fit, minmax(80px, 1fr)); ❓*/
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px; /* New way of saying: "grid-gap" */
+}
+
+.result-post-link{
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.result-post-link:hover{
+    text-decoration: underline;
+}
+
+.results-logo{
+    grid-row: 1;
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.results-logo img{
+    width: 75px;
+}

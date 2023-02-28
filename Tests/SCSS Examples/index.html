@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCSS</title>
+    <link rel="stylesheet" href="main.css"> <!-- Importing SCSS from other file -->
+</head>
+
+<body>
+    <div class="container">
+        <div class="lesson">
+            <div class="randomOne"> [randomeOne] Hola a todos </div>
+            <div class="headerOne"> [headerOne] Mixin !default but NO previous declaration </div>
+            <div class="headerTwo"> [headerTwo] Mixin !default WITH previous declaration of the variable. </div>
+            <p> [p] Hello everyone </p>
+        </div>
+
+        <div class="lesson">
+            <div class="lesson-name"> Guide to Scss Nesting: </div>
+            <div class="headerThree">
+                [headerThree] With .featured inside.
+                <div class="featured">
+                    [featured] Nested and With 'color' variable values redefined
+                </div>
+            </div>
+
+            <div class="featured">
+                [featured] Not Nested, therefore Outside of the scope of [headerThree]
+            </div>
+        </div>
+
+
+        <div class="lesson">
+            <div class="lesson-name"> Scss Pseudo Selector Nesting: </div>
+            <div class="with-Pseudo-hover">
+                <a href="#">[with-Pseudo-hover] With Nested Pseudo Hover (❓❓ Why isnt the margin-top working ❓❓)</a>
+            </div>
+            <div class="title-with-Nested-and-Pseudo">
+                <a href="#">[with-Nested-and-Pseudo] With Nested selector and nested Pseudo Hover </a>
+            </div>
+        </div>
+
+
+        <div class="lesson">
+            <div class="lesson-name"> Introduction to Mixin Arguments in Scss: </div>
+            <div class="Mixin-With-Args">
+                Same Mixin with 2 Args using "@include" in 4 different ways: )❓❓ Generating problem when refactoring main.css)
+                <div class="cero-Mix"> <a href="#">[Mixin-With-Args] Mixin WITHOUT passing new arg values </a> </div>
+                <div class="one-Mix"> <a href="#">[Mixin-With-Args] Mixin passing 2 arg values </a> </div>
+                <div class="two-Mix"> <a href="#">[Mixin-With-Args] Mixin passing 1 arg value </a> </div>
+                <div class="three-Mix"> <a href="#">[Mixin-With-Args] Mixin passing 1 arg value pair </a> </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="lesson">
+            <div class="lesson-name"> ✋Working with Scss Conditionals: </div>
+            <div class="Conditional-Mixin-based-on-Args-One">
+                <p>[Conditional-Mixin-based-on-Args-One] See SCSS file: No arg => hence, "black"</p>
+            </div>
+            <div class="Conditional-Mixin-based-on-Args-Two">
+                <p>[Conditional-Mixin-based-on-Args-Two] See SCSS file: arg = "light"</p>
+            </div>
+            <div class="Conditional-Mixin-based-on-Args-Three">
+                <p>[Conditional-Mixin-based-on-Args-Three] See SCSS file: arg = "blue"</p>
+            </div>
+            <div class="Conditional-Mixin-based-on-Args-Four">
+                <p>[Conditional-Mixin-based-on-Args-Four] See SCSS file arg = "another", else => "black"</p>
+            </div>
+        </div>
+
+
+        <div class="lesson">
+            <div class="lesson-name"> Project: Build a Flexbox Mixin with Scss: </div>
+            <div class="grid-wrapperA">
+                <div class="element">a</div>
+                <div class="element">a</div>
+                <div class="element">a</div>
+            </div>
+            <div class="grid-wrapperB">
+                <div class="element">b</div>
+                <div class="element">b</div>
+                <div class="element">b</div>
+            </div>
+        </div>
+
+
+
+        <div class="lesson">
+            <div class="lesson-name"> @each Directive, and String Interpolation: </div>
+            <div class="car-tesla"> This is a Tesla</div>
+            <div class="car-maserati"> This is a Maserati</div>
+            <div class="car-maserati"> This is a Maserati</div>
+            <div class="car-porsche"> This is a Porsche</div>
+        </div>
+
+        <div class="lesson">
+            <div class="lesson-name"> @CONTENT Directive in Scss to Allow for Mixin Flexibility </div>
+            <div class="contentDirectiveForFlexibility">
+                <div class="error">Warning. Didnt go well</div>
+                <div class="success">Great. Worked as planned</div>
+                <div class="error">Warning. Didnt go well</div>
+            </div>
+        </div>
+
+        <div class="lesson">
+            <div class="lesson-name"> Custom Heading and Bullet Point Styles: </div>
+            <div class="twoDivsClasses rojo"> [twoDivsClasses rojo] Combo of two div classes</div>
+            <div class="twoDivsClasses azul"> [twoDivsClasses azul] Combo of two div classes </div>
+            <div class="allDivsInside">
+                <div class="withClass">Div with class </div>
+                <div>Div without a class</div>
+            </div>
+        </div>
+
+        <div class="lesson">
+            <div class="lesson-name"> Name: </div>
+            <div class="...">
+                <p>[...] Write something</p>
+            </div>
+        </div>
+
+        <div class="lesson">
+            <div class="lesson-name"> Name: </div>
+            <div class="...">
+                <p>[...] Write something</p>
+            </div>
+        </div>
+
+        <div class="lesson">
+            <div class="lesson-name"> Name: </div>
+            <div class="...">
+                <p>[...] Write something</p>
+            </div>
+        </div>
+
+        <div class="lesson">
+            <div class="lesson-name"> Name: </div>
+            <div class="...">
+                <p>[...] Write something</p>
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>

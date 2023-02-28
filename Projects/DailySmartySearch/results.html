@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Front End Search Implementation Result Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Import Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,400&display=swap" rel="stylesheet">
+  <!-- FontAwesome Import. It has to be above the CSS Import -->
+  <script src="https://kit.fontawesome.com/69c516a904.js" crossorigin="anonymous"></script>
+
+  <!-- Import CSS File -->
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+
+<body>
+
+  <div class="container container-results"> <!-- SEE: 👍 Abstract Container Class that can be Shared Across Pages -->
+    <!-- Logo -->
+    <div class="results-logo">
+      <img src="images/ds_circle_logo.png" alt="">
+    </div>
+    <!-- <i class="fa-sharp fa-solid fa-magnifying-glass"></i> -->
+
+    <!-- Search box -->
+    <div class="search-bar results-search-bar">
+      <input type="text" placeholder="&#xf002; Joaquin Search now"> <!-- &#xf002; to insert unicode: f002 -->
+      <p>Press return to search</p>
+    </div>
+
+    <!-- Results posts -->
+    <div class="results-posts-wrapper">
+      <div class="post">
+        <div class="category-name">
+          JavaScript
+        </div>
+        <div class="result-post-title">
+          <a href="#">
+            Guide to rendering posts on a Google Map in Rails
+          </a>
+        </div>
+        <div class="result-post-links-wrapper">
+          <div class="result-post-link"> Lorem ipsum dolor sit amet, consecterue joaquin cabron de mierda </div>
+          <div class="result-post-link"> Lorem ipsum dolor sit amet, consecterue joaquin cabron de mierda </div>
+          <div class="result-post-link"> Lorem ipsum dolor sit amet, consecterue joaquin cabron de mierda </div>
+          <div class="result-post-link"> Lorem ipsum dolor sit amet, consecterue joaquin cabron de mierda </div>
+        </div>
+      </div>
+      <div class="post">
+        <div class="category-name">
+          JavaScript
+        </div>
+        <div class="result-post-title">
+          <a href="#">
+            Guide to rendering posts on a Google Map in Rails
+          </a>
+        </div>
+      </div>
+      <div class="post">
+        <div class="category-name">
+          JavaScript
+        </div>
+        <div class="result-post-title">
+          <a href="#">
+            Guide to rendering posts on a Google Map in Rails
+          </a>
+        </div>
+      </div>
+      <div class="post">
+        <div class="category-name">
+          JavaScript
+        </div>
+        <div class="result-post-title">
+          <a href="#">
+            Guide to rendering posts on a Google Map in Rails
+          </a>
+        </div>
+      </div>
+      <div class="post">
+        <div class="category-name">
+          JavaScript
+        </div>
+        <div class="result-post-title">
+          <a href="#">
+            Guide to rendering posts on a Google Map in Rails
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

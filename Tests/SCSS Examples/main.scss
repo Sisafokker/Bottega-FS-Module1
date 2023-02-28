@@ -1,0 +1,268 @@
+
+/* SASS allows you to do more with CSS, such as:
+- create variables,  mixins, nest CSS, create loops, reuse CSS rules
+SCSS is very useful for reducing your workload and increasing your speed. SCSS also helps your code be more efficient and versatile
+
+Press on "Watch CSS in VSCode... after installing the extension"
+ */
+ 
+.lesson-name{
+    font-size: 2em;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    text-align: center;
+}
+ /* VARIABLES */
+$bg-black : black;
+$c-orange: orange;
+$c-white: white;
+
+@mixin withDefaultNoPreviousDeclaration {
+    $featured-color: DarkRed !default;  /* Will apply unless this variable is declared above this one*/
+    color: $featured-color;
+    /* Mixin are for : When you need to store a large amount of properties (its like a very powerful variable!)
+    When you need to have dynamic behavior based on certain conditions.*/
+}
+
+$featured-color2: purple;
+@mixin withDefaultWithPreviousDeclaration {
+    $featured-color2: DarkRed !default;  /* $featured-color2: IS declared above this one*/
+    color: $featured-color2; /* Hence the DarkRed wont apply here. The previously declared color will... */
+}
+
+html{
+    background-color: $bg-black;
+    color: rgb(84, 211, 253);
+    font-size: 1.5em;
+}
+
+.randomOne {
+    color: $c-orange;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.headerOne{
+    @include withDefaultNoPreviousDeclaration;
+    margin-bottom: 20px;
+}
+
+.headerTwo{
+    @include withDefaultWithPreviousDeclaration;
+    margin-bottom: 20px;
+}
+
+p {
+    color: $c-white;
+    font-weight: 300;
+}
+
+
+/* Redefining Variable, but the Scope of it only applies within this Selector and Nested Selectors */
+.featured {
+    color: $c-orange;
+}
+.headerThree{ 
+    @include withDefaultNoPreviousDeclaration;
+    $c-white: grey;
+    
+    .featured { /* Nested Selector within headerThree */
+        color: $c-white;
+        font-weight: 600;
+        margin-left: 30px;
+        margin-bottom: 20px;
+    }
+}
+
+.with-Pseudo-hover{
+    margin-top: 20px;
+}
+.with-Pseudo-hover a{
+    color: $c-orange;
+    &:hover{
+        color: DarkOliveGreen;
+        text-decoration: underline;
+    }
+    margin-top: 20px; /* ❓❓ Why isnt this working ❓❓*/
+    /* Its not working as it seems we cannot apply it to the "a" selector... but to the parent class */
+}
+
+
+
+
+@mixin withNestedSelectorsAndNestedPseudo {
+    a {
+        color: $c-white;
+        text-decoration: underline;
+        &:hover{
+            color: DarkOliveGreen;;
+            text-decoration: none;
+        }
+    }
+}
+
+.title-with-Nested-and-Pseudo {
+    @include withNestedSelectorsAndNestedPseudo;
+    margin-top: 20px;
+}
+
+// Creates the arguments and defines the default value!
+@mixin mixinWithArguments($link-color: rgb(105, 104, 104),   $hover-Color: rgb(57, 57, 57) ) { 
+    margin-top: 20px; /* Works cause I am passing it to the DIV, not the Href */
+    a {
+      color: $link-color;
+      text-decoration: none;
+      &:hover {
+        color: $hover-Color;
+        text-decoration: underline;
+        font-size: 1.15em;
+      }
+    }
+  }
+  
+  .Mixin-With-Args{
+    .cero-Mix { @include mixinWithArguments;}                   /* Not passing Args */ 
+    .one-Mix { @include mixinWithArguments(yellow, red);}    /* Passing only 2nd Arg new Values */ 
+    .two-Mix { @include mixinWithArguments(blue); }          /* Passing only 2nd Arg new Values */ 
+    .three-Mix { @include mixinWithArguments($hover-Color: red);}  /* Passing only 2nd Arg new Values */ 
+  }
+
+
+
+  /* ✋Working with Scss Conditionals:  */
+  @mixin mixinConditionals ($bg-color: 'dark') {
+    @if $bg-color == 'light' {          // If someone picks light, make it Tomato
+      color: yellow;
+      text-decoration: dotted;
+    } @else if $bg-color == 'blue' {    // if someone picks blue, make it yellow, 
+      color: $c-orange;
+      text-decoration: underline;
+    } @else {                           // If someone mistypes make it red
+      color: $c-white;
+      text-decoration: none;
+    }
+}
+
+.Conditional-Mixin-based-on-Args-One p{
+    @include mixinConditionals;
+}
+.Conditional-Mixin-based-on-Args-Two p{
+    @include mixinConditionals("light")
+}
+.Conditional-Mixin-based-on-Args-Three p{
+    @include mixinConditionals("blue")
+}
+.Conditional-Mixin-based-on-Args-Four p{
+    @include mixinConditionals("another")
+}
+
+
+/* <div class="grid-wrapperA">
+    <div class="element">aaaaaa</div>
+    <div class="element">aaaaaa</div>
+    <div class="element">aaaaaa</div>
+</div> */
+
+@mixin grid-config-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* fr = Fractions */
+  grid-column-gap: 20px;
+  margin-top: 75px;
+  margin-bottom: 75px;
+}
+
+@mixin grid-config-element($alineacion: false, $colorete: false, $tamano: false){
+  color: red;
+  font-size: 40px;
+  text-align: right;
+  @if $alineacion != false {text-align: center; }
+  @if $colorete != false {color: $colorete;}
+  @if $tamano != false {font-size: $tamano;}
+}
+.grid-wrapperA{
+    @include grid-config-wrapper;
+    @include grid-config-element($alineacion: something);
+}
+.grid-wrapperB{
+    @include grid-config-wrapper;
+    @include grid-config-element($colorete: yellow, $tamano: 22px);
+}
+
+
+/* Scss Lists, @each Directive, and String Interpolation */
+$cars: 'maserati', 'tesla', 'porsche';
+@each $carName in $cars {
+    // String interpolation
+    .car-#{$carName} {
+      background-image: url('https://s3.amazonaws.com/bottega-devcamp/scss/cars/#{$carName}.jpg');
+      height: 300px;
+      width: 500px;
+      
+      /* You can also combine it with if/else logic */
+      @if $carName == "maserati"{
+        color: white;
+      } @else {
+        color: black;
+        font-weight: 600;
+        text-align: center;
+      }
+    }
+  }
+  /* --------------------------------------------------------- */
+
+
+/* 👍How to Use the @CONTENT Directive in Scss to Allow for Mixin Flexibility */
+  @mixin notification {
+    width: 99%;
+    height: 40px;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 1.2em;
+    font-family: Verdana;
+    border-radius: 3px;
+    margin: 10px;
+    @content; // This enables us to keep adding features to the mixing when we need to
+  }
+  
+  .error {
+    @include notification {
+  // Because we added the @content in the mixin, we can keep adding features below after the {}
+      background-color: rgb(191, 1, 1);
+      color: white;
+      border: 1px solid LightSlateGray;
+    }
+  }
+  
+  .success {
+    @include notification {
+  // Because we added the @content in the mixin, we can keep adding features below after the {}
+      background-color: rgb(11, 244, 116);
+      color: rgb(2, 25, 0);
+      border: 1px solid LightSalmon;
+    }
+  }
+  /* --------------------------------------------------------- */
+
+  .twoDivClasses {
+    font-weight: 900;
+    margin-bottom: 20px;
+    margin-left: 40px;
+  }
+  .azul{
+      color: blue;
+      text-align: center;
+    }
+  .rojo{
+      color: red;
+      text-align: left;
+  }
+
+  .allDivsInside > .withClass{
+    color: orange; 
+  }
+
+  .allDivsInside div{
+    color: blue;
+  }
+
+    /* --------------------------------------------------------- */

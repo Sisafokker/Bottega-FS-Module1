@@ -1,0 +1,278 @@
+@charset "UTF-8";
+/* SASS allows you to do more with CSS, such as:
+- create variables,  mixins, nest CSS, create loops, reuse CSS rules
+
+Press on "Watch CSS in VSCode... after installing the extension"
+ */
+.lesson-name {
+  font-size: 2em;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+/* VARIABLES */
+html {
+  background-color: black;
+  color: rgb(84, 211, 253);
+  font-size: 1.5em;
+}
+
+.randomOne {
+  color: orange;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.headerOne {
+  /* Will apply unless this variable is declared above this one*/
+  color: DarkRed;
+  /* Mixin are for : When you need to store a large amount of properties (its like a very powerful variable!)
+  When you need to have dynamic behavior based on certain conditions.*/
+  margin-bottom: 20px;
+}
+
+.headerTwo {
+  /* $featured-color2: IS declared above this one*/
+  color: purple; /* Hence the DarkRed wont apply here. The previously declared color will... */
+  margin-bottom: 20px;
+}
+
+p {
+  color: white;
+  font-weight: 300;
+}
+
+/* Redefining Variable, but the Scope of it only applies within this Selector and Nested Selectors */
+.featured {
+  color: orange;
+}
+
+.headerThree {
+  /* Will apply unless this variable is declared above this one*/
+  color: DarkRed;
+  /* Mixin are for : When you need to store a large amount of properties (its like a very powerful variable!)
+  When you need to have dynamic behavior based on certain conditions.*/
+}
+.headerThree .featured { /* Nested Selector within headerThree */
+  color: grey;
+  font-weight: 600;
+  margin-left: 30px;
+  margin-bottom: 20px;
+}
+
+.with-Pseudo-hover {
+  margin-top: 20px;
+}
+
+.with-Pseudo-hover a {
+  color: orange;
+  margin-top: 20px; /* ❓❓ Why isnt this working ❓❓*/
+  /* Its not working as it seems we cannot apply it to the "a" selector... but to the parent class */
+}
+.with-Pseudo-hover a:hover {
+  color: DarkOliveGreen;
+  text-decoration: underline;
+}
+
+.title-with-Nested-and-Pseudo {
+  margin-top: 20px;
+}
+.title-with-Nested-and-Pseudo a {
+  color: white;
+  text-decoration: underline;
+}
+.title-with-Nested-and-Pseudo a:hover {
+  color: DarkOliveGreen;
+  text-decoration: none;
+}
+
+.Mixin-With-Args { /* Not passing Args */
+  /* Passing only 2nd Arg new Values */
+  /* Passing only 2nd Arg new Values */
+  /* Passing only 2nd Arg new Values */
+}
+.Mixin-With-Args .cero-Mix {
+  margin-top: 20px; /* Works cause I am passing it to the DIV, not the Href */
+}
+.Mixin-With-Args .cero-Mix a {
+  color: rgb(105, 104, 104);
+  text-decoration: none;
+}
+.Mixin-With-Args .cero-Mix a:hover {
+  color: rgb(57, 57, 57);
+  text-decoration: underline;
+  font-size: 1.15em;
+}
+.Mixin-With-Args .one-Mix {
+  margin-top: 20px; /* Works cause I am passing it to the DIV, not the Href */
+}
+.Mixin-With-Args .one-Mix a {
+  color: yellow;
+  text-decoration: none;
+}
+.Mixin-With-Args .one-Mix a:hover {
+  color: red;
+  text-decoration: underline;
+  font-size: 1.15em;
+}
+.Mixin-With-Args .two-Mix {
+  margin-top: 20px; /* Works cause I am passing it to the DIV, not the Href */
+}
+.Mixin-With-Args .two-Mix a {
+  color: blue;
+  text-decoration: none;
+}
+.Mixin-With-Args .two-Mix a:hover {
+  color: rgb(57, 57, 57);
+  text-decoration: underline;
+  font-size: 1.15em;
+}
+.Mixin-With-Args .three-Mix {
+  margin-top: 20px; /* Works cause I am passing it to the DIV, not the Href */
+}
+.Mixin-With-Args .three-Mix a {
+  color: rgb(105, 104, 104);
+  text-decoration: none;
+}
+.Mixin-With-Args .three-Mix a:hover {
+  color: red;
+  text-decoration: underline;
+  font-size: 1.15em;
+}
+
+/* ✋Working with Scss Conditionals:  */
+.Conditional-Mixin-based-on-Args-One p {
+  color: white;
+  text-decoration: none;
+}
+
+.Conditional-Mixin-based-on-Args-Two p {
+  color: yellow;
+  -webkit-text-decoration: dotted;
+          text-decoration: dotted;
+}
+
+.Conditional-Mixin-based-on-Args-Three p {
+  color: orange;
+  text-decoration: underline;
+}
+
+.Conditional-Mixin-based-on-Args-Four p {
+  color: white;
+  text-decoration: none;
+}
+
+/* <div class="grid-wrapperA">
+    <div class="element">aaaaaa</div>
+    <div class="element">aaaaaa</div>
+    <div class="element">aaaaaa</div>
+</div> */
+.grid-wrapperA {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* fr = Fractions */
+  grid-column-gap: 20px;
+  margin-top: 75px;
+  margin-bottom: 75px;
+  color: red;
+  font-size: 40px;
+  text-align: right;
+  text-align: center;
+}
+
+.grid-wrapperB {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* fr = Fractions */
+  grid-column-gap: 20px;
+  margin-top: 75px;
+  margin-bottom: 75px;
+  color: red;
+  font-size: 40px;
+  text-align: right;
+  color: yellow;
+  font-size: 22px;
+}
+
+/* Scss Lists, @each Directive, and String Interpolation */
+.car-maserati {
+  background-image: url("https://s3.amazonaws.com/bottega-devcamp/scss/cars/maserati.jpg");
+  height: 300px;
+  width: 500px;
+  /* You can also combine it with if/else logic */
+  color: white;
+}
+
+.car-tesla {
+  background-image: url("https://s3.amazonaws.com/bottega-devcamp/scss/cars/tesla.jpg");
+  height: 300px;
+  width: 500px;
+  /* You can also combine it with if/else logic */
+  color: black;
+  font-weight: 600;
+  text-align: center;
+}
+
+.car-porsche {
+  background-image: url("https://s3.amazonaws.com/bottega-devcamp/scss/cars/porsche.jpg");
+  height: 300px;
+  width: 500px;
+  /* You can also combine it with if/else logic */
+  color: black;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* --------------------------------------------------------- */
+/* 👍How to Use the @CONTENT Directive in Scss to Allow for Mixin Flexibility */
+.error {
+  width: 99%;
+  height: 40px;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 1.2em;
+  font-family: Verdana;
+  border-radius: 3px;
+  margin: 10px;
+  background-color: rgb(191, 1, 1);
+  color: white;
+  border: 1px solid LightSlateGray;
+}
+
+.success {
+  width: 99%;
+  height: 40px;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 1.2em;
+  font-family: Verdana;
+  border-radius: 3px;
+  margin: 10px;
+  background-color: rgb(11, 244, 116);
+  color: rgb(2, 25, 0);
+  border: 1px solid LightSalmon;
+}
+
+/* --------------------------------------------------------- */
+.twoDivClasses {
+  font-weight: 900;
+  margin-bottom: 20px;
+  margin-left: 40px;
+}
+
+.azul {
+  color: blue;
+  text-align: center;
+}
+
+.rojo {
+  color: red;
+  text-align: left;
+}
+
+.allDivsInside > .withClass {
+  color: orange;
+}
+
+.allDivsInside div {
+  color: blue;
+}/*# sourceMappingURL=main.css.map */

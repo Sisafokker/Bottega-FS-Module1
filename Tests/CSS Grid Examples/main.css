@@ -1,0 +1,91 @@
+html {
+    width: 750px;
+    font-size: 18px;
+}
+.title {
+    text-align: center;
+    font-size: 20px;
+    text-decoration: underline;
+}
+.wrapper{
+    width: 100vw;
+}
+
+.gridWrapperOne {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns, repeat but keeping the two columns */
+    grid-gap: 20px 100px; /* 20px between rows, 10px between columns */
+    justify-items: center; /* Same as justify-content in FLEXBOX */
+    align-items: center;
+    
+    height: 15vh; /* 20% of the View Height */
+    width: 80vw;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 20px;
+    margin-bottom: 20px; 
+  }
+
+/* .gridWrapperOne .element{
+    width: 25vw; 
+    text-align: center;
+ } */
+
+.gridWrapperTwo {
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(80px, 1fr));
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 1em;
+    justify-items: center;
+    align-items: center;
+    height: 15vh; /* 20% of the View Height */
+    margin-bottom: 20px; 
+}
+
+.gridWrapperThree {
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(80px, 1fr));
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 1em;
+    justify-items: center;
+    align-items: center;
+    height: 15vh; /* 20% of the View Height */
+    margin-bottom: 20px; 
+}
+
+.gridWrapperThree >.element1{
+    grid-column: 3;
+    grid-row: 1;
+}
+
+
+
+.gridWrapperFour {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 1em;
+    justify-items: center;
+    align-items: center;
+/*     height: 25vh; /* 20% of the View Height */
+    margin-bottom: 20px; 
+}
+
+.gridWrapperFour >.element1{
+    grid-column: 1/-1;
+    grid-row: 1;
+}
+.gridWrapperFour >.element2{
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.gridWrapperFour >.element3{
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.gridWrapperFour >.element4{
+    grid-column: 2;
+    grid-row: 3;
+}
