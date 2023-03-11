@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            margin: 0;
+            height: calc(100vh - 20px); /* Math cal for height */
+            width: calc(100vw - 20px); /* Math cal for Width */
+            border: 10px solid red;
+            
+            /* This afects the flex element/s (.img_blocks) */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* horizontal - related to flex direction */
+        }
+
+        .container > .img_blocks {
+            display: flex; /* Making this Flex Element also a Container */
+           justify-content: space-evenly;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"> <!-- Flex container -->
+        <div class="img_blocks"> <!-- Flex element & Flex Container-->
+            <img src="https://source.unsplash.com/random/150x150">
+            <img src="https://source.unsplash.com/random/150x150">
+            <img src="https://source.unsplash.com/random/150x150">
+        </div>
+    </div>
+</body>
+</html>
